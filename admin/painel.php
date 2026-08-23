@@ -3,7 +3,7 @@ require "../config.php";
 require "pages/header.php";
 
 $secao = $_GET['secao'] ?? '';
-$secoesValidas = ['categoria', 'produto', 'venda', 'cliente'];
+$secoesValidas = ['dashboard', 'categoria', 'produto', 'venda', 'cliente'];
 
 if (in_array($secao, $secoesValidas)) {
     include "secoes/{$secao}.php";

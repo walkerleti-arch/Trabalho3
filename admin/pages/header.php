@@ -18,17 +18,20 @@ $secaoAtual = $_GET['secao'] ?? '';
 </head>
 <body>
 
-<!-- (1 Bootstrap) -->
+<!-- Menu superior - Bootstrap Navbar (uso nº1 do Bootstrap) -->
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid px-4">
         <a class="navbar-brand fw-bold" href="painel.php">
-            <span class="brand-icone"></span> Depósito São José
+            <span class="brand-icone"></span> Depósito Central
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="menuPrincipal">
             <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link <?= $secaoAtual === 'dashboard' ? 'active' : '' ?>" href="painel.php?secao=dashboard">Dashboard</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link <?= $secaoAtual === 'categoria' ? 'active' : '' ?>" href="painel.php?secao=categoria">Categorias</a>
                 </li>

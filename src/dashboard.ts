@@ -19,7 +19,6 @@ function mostrarErro(mensagem: string): void {
 async function carregarDashboard(): Promise<void> {
   let itens: ItemVenda[];
 
-  // Edge case 1: falha de rede ou sessão expirada (fetch pode rejeitar ou vir com status de erro)
   try {
     const resposta = await fetch("dados_dashboard.php");
     if (!resposta.ok) {
@@ -38,7 +37,6 @@ async function carregarDashboard(): Promise<void> {
     return;
   }
 
-  // Edge case 3: preço nulo, vazio ou não numérico dentro de um item específico
   const faturamentoTotal = itens.reduce((acumulador, item) => {
     const preco = parseFloat(item.nr_preco);
     const quantidade = item.nr_quantidade;
