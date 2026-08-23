@@ -1,7 +1,6 @@
 <?php
-// Ajuste esses dados conforme o seu ambiente (DBeaver/MariaDB local)
 $host = "localhost";
-$db   = "deposito2"; // troque pelo nome real do seu banco
+$db   = "deposito2";
 $user = "root";
 $pass = "";
 

@@ -7,14 +7,14 @@
     <title>Acesso Administrativo - Depósito</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Barlow+Condensed:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <div class="login-card">
         <div class="logo-area">
-            <div class="logo-icone"></div>
-            <div class="logo-texto">Depósito Central</div>
+            <img src="imagens/logo.png" alt="Depósito São José" class="logo-img">
+            <div class="logo-texto">Depósito São José</div>
             <div class="logo-sub">Painel Administrativo</div>
         </div>
 

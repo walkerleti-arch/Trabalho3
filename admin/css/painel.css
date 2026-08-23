@@ -1,0 +1,99 @@
+:root {
+  --concreto-escuro: #2b2b2b;
+  --concreto: #4a4a4a;
+  --concreto-claro: #ececea;
+  --amarelo-obra: #f4b400;
+  --amarelo-obra-hover: #d99e00;
+}
+
+body {
+  background-color: var(--concreto-claro);
+  font-family: "Barlow Condensed", "Segoe UI", sans-serif;
+}
+
+.navbar {
+  background-color: var(--concreto-escuro);
+  border-bottom: 4px solid var(--amarelo-obra);
+}
+
+.brand-icone {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: var(--amarelo-obra);
+  transform: rotate(45deg);
+  margin-right: 6px;
+}
+
+.navbar .nav-link {
+  color: #d8d6d2;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.navbar .nav-link.active,
+.navbar .nav-link:hover {
+  color: var(--amarelo-obra);
+}
+
+/* O "quadrado branco" que você descreveu */
+.quadro-branco {
+  background: #ffffff;
+  border-radius: 4px;
+  border-top: 5px solid var(--amarelo-obra);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  padding: 28px;
+  min-height: 60vh;
+}
+
+.btn-lapis,
+.btn-icone-editar,
+.btn-icone-excluir {
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  padding: 4px 8px;
+  border-radius: 3px;
+  transition: background 0.15s ease;
+}
+
+.btn-lapis {
+  color: var(--concreto-escuro);
+  background: var(--amarelo-obra);
+  font-size: 16px;
+  padding: 8px 14px;
+}
+
+.btn-lapis:hover {
+  background: var(--amarelo-obra-hover);
+}
+
+.btn-icone-editar {
+  color: var(--concreto);
+}
+
+.btn-icone-editar:hover {
+  background: #eee;
+}
+
+.btn-icone-excluir {
+  color: #b0271c;
+}
+
+.btn-icone-excluir:hover {
+  background: #fdecea;
+}
+
+.btn-laranja {
+  background: var(--amarelo-obra);
+  color: var(--concreto-escuro);
+  font-weight: 600;
+  border: none;
+}
+
+.btn-laranja:hover {
+  background: var(--amarelo-obra-hover);
+  color: var(--concreto-escuro);
+}
