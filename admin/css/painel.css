@@ -97,3 +97,41 @@ body {
   background: var(--amarelo-obra-hover);
   color: var(--concreto-escuro);
 }
+
+.mensagem-vazia {
+  text-align: center;
+  color: var(--concreto);
+  font-size: 15px;
+  padding: 32px 0;
+}
+
+.mensagem-erro {
+  text-align: center;
+  color: #b0271c;
+  font-size: 15px;
+  padding: 32px 0;
+}
+
+.card-metrica {
+  display: inline-flex;
+  flex-direction: column;
+  background: var(--concreto-claro);
+  border-left: 4px solid var(--amarelo-obra);
+  border-radius: 4px;
+  padding: 16px 24px;
+  margin-right: 16px;
+  min-width: 200px;
+}
+
+.metrica-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--concreto);
+}
+
+.metrica-valor {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--concreto-escuro);
+}
