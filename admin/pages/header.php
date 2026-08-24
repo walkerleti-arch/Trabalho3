@@ -18,11 +18,10 @@ $secaoAtual = $_GET['secao'] ?? '';
 </head>
 <body>
 
-<!-- Menu superior - Bootstrap Navbar (uso nº1 do Bootstrap) -->
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid px-4">
         <a class="navbar-brand fw-bold" href="painel.php">
-            <span class="brand-icone"></span> Depósito Central
+            <span class="brand-icone"></span> Depósito São José
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
             <span class="navbar-toggler-icon"></span>

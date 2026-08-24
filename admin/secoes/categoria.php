@@ -9,7 +9,6 @@ $categorias = $pdo->query("SELECT id_categoria, nm_categoria FROM CATEGORIA WHER
     </button>
 </div>
 
-<!-- Tabela - Bootstrap Table (uso nº2 do Bootstrap) -->
 <table class="table table-hover align-middle">
     <thead>
         <tr>
@@ -40,7 +39,6 @@ $categorias = $pdo->query("SELECT id_categoria, nm_categoria FROM CATEGORIA WHER
     </tbody>
 </table>
 
-<!-- Modal de adicionar/editar - Bootstrap Modal (uso nº3 do Bootstrap) -->
 <div class="modal fade" id="modalCategoria" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -63,7 +61,6 @@ $categorias = $pdo->query("SELECT id_categoria, nm_categoria FROM CATEGORIA WHER
     </div>
 </div>
 
-<!-- Formulário oculto usado só para enviar a exclusão -->
 <form id="formExcluirCategoria" action="acoes/categoria_excluir.php" method="POST" class="d-none">
     <input type="hidden" name="id_categoria" id="idCategoriaExcluir">
 </form>
