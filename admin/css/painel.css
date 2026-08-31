@@ -38,6 +38,7 @@ body {
   color: var(--amarelo-obra);
 }
 
+/* O "quadrado branco" que você descreveu */
 .quadro-branco {
   background: #ffffff;
   border-radius: 4px;
@@ -133,4 +134,18 @@ body {
   font-size: 24px;
   font-weight: 700;
   color: var(--concreto-escuro);
+}
+
+.preview-imagem-atual {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--concreto);
+}
+
+.preview-imagem-atual img {
+  max-width: 120px;
+  max-height: 120px;
+  border-radius: 4px;
+  margin-top: 6px;
+  border: 1px solid #ddd;
 }

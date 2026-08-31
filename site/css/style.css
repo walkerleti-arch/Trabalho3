@@ -1,0 +1,246 @@
+:root {
+  --concreto-escuro: #2b2b2b;
+  --concreto: #4a4a4a;
+  --concreto-claro: #ececea;
+  --amarelo-obra: #f4b400;
+  --amarelo-obra-hover: #d99e00;
+  --branco: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Barlow Condensed", "Segoe UI", sans-serif;
+  background: var(--concreto-claro);
+  color: var(--concreto-escuro);
+}
+
+.topo {
+  background: var(--concreto-escuro);
+  border-bottom: 4px solid var(--amarelo-obra);
+  padding: 18px 24px;
+}
+
+.topo-marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.marca-icone {
+  width: 20px;
+  height: 20px;
+  background: var(--amarelo-obra);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.marca-texto {
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--branco);
+}
+
+.marca-sub {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #bbb;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+}
+
+.titulo-pagina {
+  font-family: "Oswald", sans-serif;
+  font-size: 28px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.btn-filtro {
+  border: 2px solid var(--concreto-escuro);
+  background: transparent;
+  color: var(--concreto-escuro);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-filtro:hover {
+  background: var(--concreto-escuro);
+  color: var(--branco);
+}
+
+.btn-filtro.ativo {
+  background: var(--amarelo-obra);
+  border-color: var(--amarelo-obra);
+  color: var(--concreto-escuro);
+}
+
+.grade-produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.card-produto {
+  background: var(--branco);
+  border-radius: 4px;
+  border-top: 4px solid var(--amarelo-obra);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-imagem {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 3px;
+  background: var(--concreto-claro);
+  margin-bottom: 14px;
+}
+
+.card-categoria {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--amarelo-obra-hover);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.card-nome {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  flex-grow: 1;
+}
+
+.card-preco {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.btn-ver-produto {
+  background: var(--concreto-escuro);
+  color: var(--branco);
+  border: none;
+  padding: 10px;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+.btn-ver-produto:hover {
+  background: var(--amarelo-obra);
+  color: var(--concreto-escuro);
+}
+
+.link-voltar {
+  display: inline-block;
+  margin-bottom: 24px;
+  color: var(--concreto);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.link-voltar:hover {
+  color: var(--amarelo-obra-hover);
+}
+
+.detalhe-pagina {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  background: var(--branco);
+  border-radius: 4px;
+  border-top: 6px solid var(--amarelo-obra);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  padding: 40px;
+}
+
+.detalhe-imagem-area img {
+  width: 100%;
+  border-radius: 4px;
+  object-fit: cover;
+  background: var(--concreto-claro);
+}
+
+.detalhe-info-area .detalhe-categoria {
+  display: inline-block;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--amarelo-obra-hover);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.detalhe-nome {
+  font-family: "Oswald", sans-serif;
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+
+.detalhe-info-area .detalhe-descricao {
+  color: var(--concreto);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.detalhe-info-area .detalhe-preco {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.detalhe-info-area .detalhe-estoque {
+  font-size: 14px;
+  color: var(--concreto);
+}
+
+@media (max-width: 700px) {
+  .detalhe-pagina {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+}
+
+.mensagem-vazia,
+.mensagem-erro {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 48px 0;
+  color: var(--concreto);
+}
+
+.mensagem-erro { color: #b0271c; }

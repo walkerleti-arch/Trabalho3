@@ -1,6 +1,6 @@
 <?php
 $produtos = $pdo->query("
-    SELECT p.id_produto, p.nm_produto, p.nr_preco, p.nr_estoque, p.id_categoria, c.nm_categoria
+    SELECT p.id_produto, p.nm_produto, p.nr_preco, p.nr_estoque, p.id_categoria, p.ds_descricao, p.ds_imagem, c.nm_categoria
     FROM PRODUTO p
     INNER JOIN CATEGORIA c ON p.id_categoria = c.id_categoria
     WHERE p.fl_ativo = TRUE AND c.fl_ativo = TRUE
@@ -39,7 +39,7 @@ $categorias = $pdo->query("SELECT id_categoria, nm_categoria FROM CATEGORIA WHER
             <td><?= (int)$p['nr_estoque'] ?></td>
             <td class="text-end">
                 <button class="btn-icone-editar" title="Editar"
-                    onclick='editarProduto(<?= $p["id_produto"] ?>, <?= json_encode($p["nm_produto"]) ?>, <?= $p["nr_preco"] ?>, <?= (int)$p["nr_estoque"] ?>, <?= $p["id_categoria"] ?>)'
+                    onclick='editarProduto(<?= $p["id_produto"] ?>, <?= json_encode($p["nm_produto"]) ?>, <?= $p["nr_preco"] ?>, <?= (int)$p["nr_estoque"] ?>, <?= $p["id_categoria"] ?>, <?= json_encode($p["ds_descricao"] ?? "") ?>, <?= json_encode($p["ds_imagem"] ?? "") ?>)'
                     data-bs-toggle="modal" data-bs-target="#modalProduto">
                     <i class="bi bi-pencil"></i>
                 </button>
@@ -56,13 +56,14 @@ $categorias = $pdo->query("SELECT id_categoria, nm_categoria FROM CATEGORIA WHER
 <div class="modal fade" id="modalProduto" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="acoes/produto_salvar.php" method="POST">
+            <form action="acoes/produto_salvar.php" method="POST" enctype="multipart/form-data">
                 <div class="modal-header">
                     <h5 class="modal-title" id="tituloModalProduto">Novo Produto</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <input type="hidden" name="id_produto" id="idProduto">
+                    <input type="hidden" name="ds_imagem_atual" id="dsImagemAtual">
 
                     <label class="form-label">Nome do produto</label>
                     <input type="text" name="nm_produto" id="nmProduto" class="form-control mb-3" required maxlength="100">
@@ -84,6 +85,13 @@ $categorias = $pdo->query("SELECT id_categoria, nm_categoria FROM CATEGORIA WHER
                             <input type="number" min="0" name="nr_estoque" id="nrEstoque" class="form-control" required>
                         </div>
                     </div>
+
+                    <label class="form-label mt-3">Descrição</label>
+                    <textarea name="ds_descricao" id="dsDescricao" class="form-control" rows="3" maxlength="1000"></textarea>
+
+                    <label class="form-label mt-3">Imagem do produto</label>
+                    <input type="file" name="arquivo_imagem" id="arquivoImagem" class="form-control" accept="image/png, image/jpeg, image/webp">
+                    <div id="previewImagemAtual" class="preview-imagem-atual"></div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -106,15 +114,29 @@ function novoProduto() {
     document.getElementById('nrPreco').value = '';
     document.getElementById('nrEstoque').value = '';
     document.getElementById('idCategoriaProduto').selectedIndex = 0;
+    document.getElementById('dsDescricao').value = '';
+    document.getElementById('arquivoImagem').value = '';
+    document.getElementById('dsImagemAtual').value = '';
+    document.getElementById('previewImagemAtual').innerHTML = '';
 }
 
-function editarProduto(id, nome, preco, estoque, idCategoria) {
+function editarProduto(id, nome, preco, estoque, idCategoria, descricao, imagem) {
     document.getElementById('tituloModalProduto').innerText = 'Editar Produto';
     document.getElementById('idProduto').value = id;
     document.getElementById('nmProduto').value = nome;
     document.getElementById('nrPreco').value = preco;
     document.getElementById('nrEstoque').value = estoque;
     document.getElementById('idCategoriaProduto').value = idCategoria;
+    document.getElementById('dsDescricao').value = descricao;
+    document.getElementById('arquivoImagem').value = '';
+    document.getElementById('dsImagemAtual').value = imagem;
+
+    var preview = document.getElementById('previewImagemAtual');
+    if (imagem) {
+        preview.innerHTML = '<span>Imagem atual:</span><br><img src="../site/imagens/produtos/' + imagem + '" alt="Imagem atual">';
+    } else {
+        preview.innerHTML = '<span>Nenhuma imagem cadastrada ainda.</span>';
+    }
 }
 
 function excluirProduto(id, nome) {
