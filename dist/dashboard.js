@@ -35,7 +35,6 @@ function carregarDashboard() {
             mostrarErro("Não foi possível carregar os dados no momento.");
             return;
         }
-        // Edge case 2: banco vazio (nenhuma venda registrada ainda)
         if (!itens || itens.length === 0) {
             mostrarMensagemVazia("Nenhum dado registrado.");
             return;

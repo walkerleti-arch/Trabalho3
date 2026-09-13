@@ -1,5 +1,11 @@
 <?php
 require '../config.php';
+$fotosProdutos = [
+    "Disjuntor Bipolar 40A" => "8.jpg",
+   
+];
+
+$IMAGEM_PADRAO = "sem-foto.png";
 
 $id = $_GET['id'] ?? '';
 
@@ -9,7 +15,7 @@ if ($id === '') {
 }
 
 $stmt = $pdo->prepare("
-    SELECT p.id_produto, p.nm_produto, p.nr_preco, p.nr_estoque, p.ds_descricao, p.ds_imagem,
+    SELECT p.id_produto, p.nm_produto, p.nr_preco, p.nr_estoque, p.ds_descricao,
            c.nm_categoria
     FROM PRODUTO p
     INNER JOIN CATEGORIA c ON p.id_categoria = c.id_categoria
@@ -23,8 +29,8 @@ if (!$produto) {
     exit;
 }
 
-$IMAGEM_PADRAO = "imagens/produtos/sem-foto.png";
-$caminhoImagem = $produto['ds_imagem'] ? "imagens/produtos/" . $produto['ds_imagem'] : $IMAGEM_PADRAO;
+$nomeArquivo = $fotosProdutos[$produto['nm_produto']] ?? $IMAGEM_PADRAO;
+$caminhoImagem = "imagens/" . $nomeArquivo;
 $descricao = $produto['ds_descricao'] ?: "Sem descrição cadastrada para este produto.";
 ?>
 <!DOCTYPE html>
@@ -41,7 +47,7 @@ $descricao = $produto['ds_descricao'] ?: "Sem descrição cadastrada para este p
 
 <header class="topo">
     <div class="topo-marca">
-        <span class="marca-icone"></span>
+        <img src="imagens/logo.png" alt="Depósito São José" class="marca-icone-img">
         <div>
             <div class="marca-texto">Depósito São José</div>
             <div class="marca-sub">Materiais de Construção</div>
@@ -55,7 +61,7 @@ $descricao = $produto['ds_descricao'] ?: "Sem descrição cadastrada para este p
     <div class="detalhe-pagina">
         <div class="detalhe-imagem-area">
             <img src="<?= htmlspecialchars($caminhoImagem) ?>" alt="<?= htmlspecialchars($produto['nm_produto']) ?>"
-                 onerror="this.src='<?= $IMAGEM_PADRAO ?>'">
+                 onerror="this.onerror=null; this.src='imagens/<?= $IMAGEM_PADRAO ?>';">
         </div>
 
         <div class="detalhe-info-area">

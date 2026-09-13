@@ -1,8 +1,14 @@
 <?php
 require '../config.php';
+$fotosProdutos = [
+    "Disjuntor Bipolar 40A" => "8.jpg",
+    
+];
+
+$IMAGEM_PADRAO = "sem-foto.png";
 
 $sql = "
-    SELECT p.id_produto, p.nm_produto, p.nr_preco, p.ds_imagem,
+    SELECT p.id_produto, p.nm_produto, p.nr_preco,
            c.id_categoria, c.nm_categoria
     FROM PRODUTO p
     INNER JOIN CATEGORIA c ON p.id_categoria = c.id_categoria
@@ -15,8 +21,6 @@ $categorias = [];
 foreach ($produtos as $p) {
     $categorias[$p['id_categoria']] = $p['nm_categoria'];
 }
-
-$IMAGEM_PADRAO = "imagens/produtos/sem-foto.png";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -32,7 +36,7 @@ $IMAGEM_PADRAO = "imagens/produtos/sem-foto.png";
 
 <header class="topo">
     <div class="topo-marca">
-        <span class="marca-icone"></span>
+        <img src="imagens/logo.png" alt="Depósito São José" class="marca-icone-img">
         <div>
             <div class="marca-texto">Depósito São José</div>
             <div class="marca-sub">Materiais de Construção</div>
@@ -56,13 +60,12 @@ $IMAGEM_PADRAO = "imagens/produtos/sem-foto.png";
         <?php endif; ?>
         <?php foreach ($produtos as $p): ?>
             <?php
-                $caminhoImagem = $p['ds_imagem']
-                    ? "imagens/produtos/" . $p['ds_imagem']
-                    : $IMAGEM_PADRAO;
+                $nomeArquivo = $fotosProdutos[$p['nm_produto']] ?? $IMAGEM_PADRAO;
+                $caminhoImagem = "imagens/" . $nomeArquivo;
             ?>
             <div class="card-produto" data-categoria="<?= $p['id_categoria'] ?>">
                 <img src="<?= htmlspecialchars($caminhoImagem) ?>" alt="<?= htmlspecialchars($p['nm_produto']) ?>" class="card-imagem"
-                     onerror="this.src='<?= $IMAGEM_PADRAO ?>'">
+                     onerror="this.onerror=null; this.src='imagens/<?= $IMAGEM_PADRAO ?>';">
                 <span class="card-categoria"><?= htmlspecialchars($p['nm_categoria']) ?></span>
                 <div class="card-nome"><?= htmlspecialchars($p['nm_produto']) ?></div>
                 <div class="card-preco">R$ <?= number_format($p['nr_preco'], 2, ',', '.') ?></div>

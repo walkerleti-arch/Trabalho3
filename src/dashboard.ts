@@ -39,10 +39,8 @@ async function carregarDashboard(): Promise<void> {
   const faturamentoTotal = itens.reduce((acumulador, item) => {
     const preco = parseFloat(item.nr_preco);
     const quantidade = item.nr_quantidade;
-
     const precoValido = !isNaN(preco) ? preco : 0;
     const quantidadeValida = !isNaN(quantidade) ? quantidade : 0;
-
     return acumulador + (precoValido * quantidadeValida);
   }, 0);
 

@@ -6,6 +6,16 @@ $vendas = $pdo->query("
     ORDER BY v.dt_venda DESC
 ")->fetchAll(PDO::FETCH_ASSOC);
 
+$itensVendidos = $pdo->query("
+    SELECT v.id_venda, v.dt_venda, c.nm_pessoa, p.nm_produto, vp.nr_quantidade, p.nr_preco,
+           (vp.nr_quantidade * p.nr_preco) AS subtotal
+    FROM VENDA_PRODUTO vp
+    INNER JOIN VENDA v ON vp.id_venda = v.id_venda
+    INNER JOIN CLIENTE c ON v.id_cliente = c.id_cliente
+    INNER JOIN PRODUTO p ON vp.id_produto = p.id_produto
+    ORDER BY v.dt_venda DESC, v.id_venda DESC
+")->fetchAll(PDO::FETCH_ASSOC);
+
 $clientes = $pdo->query("SELECT id_cliente, nm_pessoa FROM CLIENTE ORDER BY nm_pessoa")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
@@ -45,6 +55,38 @@ $clientes = $pdo->query("SELECT id_cliente, nm_pessoa FROM CLIENTE ORDER BY nm_p
                     <i class="bi bi-trash"></i>
                 </button>
             </td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
+<hr class="my-4">
+
+<h5 class="mb-3">Produtos vendidos em cada venda</h5>
+
+<table class="table table-sm table-hover align-middle">
+    <thead>
+        <tr>
+            <th>Data</th>
+            <th>Cliente</th>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Preço Unit.</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php if (count($itensVendidos) === 0): ?>
+            <tr><td colspan="6" class="text-center text-muted py-4">Nenhum item de venda registrado ainda.</td></tr>
+        <?php endif; ?>
+        <?php foreach ($itensVendidos as $item): ?>
+        <tr>
+            <td><?= date('d/m/Y', strtotime($item['dt_venda'])) ?></td>
+            <td><?= htmlspecialchars($item['nm_pessoa']) ?></td>
+            <td><?= htmlspecialchars($item['nm_produto']) ?></td>
+            <td><?= (int)$item['nr_quantidade'] ?></td>
+            <td>R$ <?= number_format($item['nr_preco'], 2, ',', '.') ?></td>
+            <td>R$ <?= number_format($item['subtotal'], 2, ',', '.') ?></td>
         </tr>
         <?php endforeach; ?>
     </tbody>
@@ -105,7 +147,7 @@ function editarVenda(id, data, valor, idCliente) {
 }
 
 function excluirVenda(id) {
-    if (confirm('Deseja realmente excluir esta venda? Essa ação não pode ser desfeita.')) {
+    if (confirm('Deseja realmente excluir esta venda? Essa ação não pode ser desfeita e só funciona se não houver produtos lançados para ela.')) {
         document.getElementById('idVendaExcluir').value = id;
         document.getElementById('formExcluirVenda').submit();
     }
