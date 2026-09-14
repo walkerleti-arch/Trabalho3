@@ -2,7 +2,11 @@
 require '../config.php';
 $fotosProdutos = [
     "Disjuntor Bipolar 40A" => "8.jpg",
-    
+    "Fio Elétrico 2.5mm (rolo 100m)" => "7.webp",
+    "Furadeira de Impacto 550W" => "11.webp",
+    "Trena 5m" => "12.webp",
+    "Torneira Cromada Bancada" => "10.webp",
+    "Tubo PVC Esgoto 100mm (barra 6m)" => "9.webp"
 ];
 
 $IMAGEM_PADRAO = "sem-foto.png";
@@ -27,10 +31,10 @@ foreach ($produtos as $p) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Depósito São José - Produtos</title>
+    <title>Depósito São José</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Barlow+Condensed:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=12">
 </head>
 <body>
 

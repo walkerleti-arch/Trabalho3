@@ -88,10 +88,7 @@ $categorias = $pdo->query("SELECT id_categoria, nm_categoria FROM CATEGORIA WHER
 
                     <label class="form-label mt-3">Descrição</label>
                     <textarea name="ds_descricao" id="dsDescricao" class="form-control" rows="3" maxlength="1000"></textarea>
-
-                    <label class="form-label mt-3">Imagem do produto</label>
-                    <input type="file" name="arquivo_imagem" id="arquivoImagem" class="form-control" accept="image/png, image/jpeg, image/webp">
-                    <div id="previewImagemAtual" class="preview-imagem-atual"></div>
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -116,11 +113,9 @@ function novoProduto() {
     document.getElementById('idCategoriaProduto').selectedIndex = 0;
     document.getElementById('dsDescricao').value = '';
     document.getElementById('arquivoImagem').value = '';
-    document.getElementById('dsImagemAtual').value = '';
-    document.getElementById('previewImagemAtual').innerHTML = '';
 }
 
-function editarProduto(id, nome, preco, estoque, idCategoria, descricao, imagem) {
+function editarProduto(id, nome, preco, estoque, idCategoria, descricao) {
     document.getElementById('tituloModalProduto').innerText = 'Editar Produto';
     document.getElementById('idProduto').value = id;
     document.getElementById('nmProduto').value = nome;
@@ -128,15 +123,6 @@ function editarProduto(id, nome, preco, estoque, idCategoria, descricao, imagem)
     document.getElementById('nrEstoque').value = estoque;
     document.getElementById('idCategoriaProduto').value = idCategoria;
     document.getElementById('dsDescricao').value = descricao;
-    document.getElementById('arquivoImagem').value = '';
-    document.getElementById('dsImagemAtual').value = imagem;
-
-    var preview = document.getElementById('previewImagemAtual');
-    if (imagem) {
-        preview.innerHTML = '<span>Imagem atual:</span><br><img src="../site/imagens/produtos/' + imagem + '" alt="Imagem atual">';
-    } else {
-        preview.innerHTML = '<span>Nenhuma imagem cadastrada ainda.</span>';
-    }
 }
 
 function excluirProduto(id, nome) {

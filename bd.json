@@ -1,0 +1,169 @@
+{
+  "administrador": [
+    {
+      "id_administrador": 1,
+      "nm_usuario": "admin",
+      "ds_senha": "$2y$10$37tzDPvrSMPTfPVpvsNA0.8FHAH7ZXwMOkKJuBALWW2zl0jpVYbPa",
+      "fl_ativo": 1
+    }
+  ],
+  "venda": [
+    {
+      "id_venda": 1,
+      "dt_venda": "2025-01-10",
+      "nr_valor": 290,
+      "id_cliente": 1
+    },
+    {
+      "id_venda": 2,
+      "dt_venda": "2025-01-15",
+      "nr_valor": 56,
+      "id_cliente": 2
+    },
+    {
+      "id_venda": 3,
+      "dt_venda": "2025-02-02",
+      "nr_valor": 1950,
+      "id_cliente": 3
+    }
+  ],
+  "produto": [
+    {
+      "id_produto": 7,
+      "nm_produto": "Fio Elétrico 2.5mm (rolo 100m)",
+      "nr_preco": 145.0,
+      "nr_estoque": 70,
+      "id_categoria": 1,
+      "fl_ativo": 1,
+      "ds_descricao": "Rolo de fio elétrico flexível de 2,5mm², ideal para instalações residenciais em tomadas e iluminação. Isolamento em PVC antichama, atende à norma NBR NM 247-3. Rolo com 100 metros.",
+      "ds_imagem": null
+    },
+    {
+      "id_produto": 8,
+      "nm_produto": "Disjuntor Bipolar 40A",
+      "nr_preco": 28.0,
+      "nr_estoque": 90,
+      "id_categoria": 1,
+      "fl_ativo": 1,
+      "ds_descricao": "Dispositivo de proteção elétrica destinado a interromper automaticamente o circuito em situações de sobrecarga ou curto-circuito. Possui dois polos e corrente nominal de 40 amperes, sendo indicado para instalações elétricas que exigem proteção simultânea dos dois condutores.",
+      "ds_imagem": "produto_6a94eda79c735.jpg"
+    },
+    {
+      "id_produto": 9,
+      "nm_produto": "Tubo PVC Esgoto 100mm (barra 6m)",
+      "nr_preco": 65.0,
+      "nr_estoque": 110,
+      "id_categoria": 2,
+      "fl_ativo": 1,
+      "ds_descricao": "Tubo de PVC para rede de esgoto, diâmetro de 100mm, barra com 6 metros. Alta resistência a impactos e produtos químicos, indicado para tubulações prediais.",
+      "ds_imagem": null
+    },
+    {
+      "id_produto": 10,
+      "nm_produto": "Torneira Cromada Bancada",
+      "nr_preco": 45.9,
+      "nr_estoque": 85,
+      "id_categoria": 2,
+      "fl_ativo": 1,
+      "ds_descricao": "Torneira de bancada cromada, acabamento resistente a manchas e corrosão. Design compacto, ideal para banheiros e lavabos. Instalação simples com rosca padrão.",
+      "ds_imagem": null
+    },
+    {
+      "id_produto": 11,
+      "nm_produto": "Furadeira de Impacto 550W",
+      "nr_preco": 210.0,
+      "nr_estoque": 25,
+      "id_categoria": 3,
+      "fl_ativo": 1,
+      "ds_descricao": "Furadeira de impacto com potência de 550W, ideal para perfurar concreto, madeira e metal. Possui seletor de função (furar/impacto) e velocidade variável no gatilho.",
+      "ds_imagem": null
+    },
+    {
+      "id_produto": 12,
+      "nm_produto": "Trena 5m",
+      "nr_preco": 15.9,
+      "nr_estoque": 130,
+      "id_categoria": 3,
+      "fl_ativo": 1,
+      "ds_descricao": "Trena manual de 5 metros com trava automática e fita revestida contra ferrugem. Estrutura emborrachada para maior resistência a quedas no dia a dia da obra.",
+      "ds_imagem": null
+    },
+    {
+      "id_produto": 13,
+      "nm_produto": "Porca",
+      "nr_preco": 0.1,
+      "nr_estoque": 100,
+      "id_categoria": 6,
+      "fl_ativo": 1,
+      "ds_descricao": null,
+      "ds_imagem": null
+    },
+    {
+      "id_produto": 14,
+      "nm_produto": "Porca",
+      "nr_preco": 0.2,
+      "nr_estoque": 400,
+      "id_categoria": 7,
+      "fl_ativo": 1,
+      "ds_descricao": null,
+      "ds_imagem": null
+    }
+  ],
+  "venda_produto": [
+    {
+      "id_venda_produto": 7,
+      "id_produto": 7,
+      "id_venda": 1,
+      "nr_quantidade": 2
+    },
+    {
+      "id_venda_produto": 8,
+      "id_produto": 8,
+      "id_venda": 2,
+      "nr_quantidade": 2
+    },
+    {
+      "id_venda_produto": 9,
+      "id_produto": 9,
+      "id_venda": 3,
+      "nr_quantidade": 30
+    }
+  ],
+  "categoria": [
+    {
+      "id_categoria": 1,
+      "nm_categoria": "Elétrica",
+      "fl_ativo": 1
+    },
+    {
+      "id_categoria": 2,
+      "nm_categoria": "Hidráulica",
+      "fl_ativo": 1
+    },
+    {
+      "id_categoria": 3,
+      "nm_categoria": "Ferramentas",
+      "fl_ativo": 1
+    },
+    {
+      "id_categoria": 4,
+      "nm_categoria": "Elétrica",
+      "fl_ativo": 0
+    },
+    {
+      "id_categoria": 5,
+      "nm_categoria": "asasas",
+      "fl_ativo": 0
+    },
+    {
+      "id_categoria": 6,
+      "nm_categoria": "Pregos",
+      "fl_ativo": 0
+    },
+    {
+      "id_categoria": 7,
+      "nm_categoria": "Pregos",
+      "fl_ativo": 0
+    }
+  ]
+}

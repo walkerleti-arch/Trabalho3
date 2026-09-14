@@ -1,7 +1,7 @@
 :root {
-  --concreto-escuro: #2b2b2b;
-  --concreto: #4a4a4a;
-  --concreto-claro: #ececea;
+  --concreto-escuro: #000000;
+  --concreto: #696969;
+  --concreto-claro: #eaeaea;
   --amarelo-obra: #f4b400;
   --amarelo-obra-hover: #d99e00;
   --branco: #ffffff;
@@ -16,22 +16,20 @@ body {
 }
 
 .topo {
-  background: var(--concreto-escuro);
+  background: var(--concreto);
   border-bottom: 4px solid var(--amarelo-obra);
-  padding: 18px 24px;
+  padding: 8px 24px;
 }
-
+ 
 .topo-marca {
   display: flex;
   align-items: center;
   gap: 10px;
-  max-width: 1100px;
-  margin: 0 auto;
 }
-
+ 
 .marca-icone-img {
-  width: 10px;
-  height: 10px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
   flex-shrink: 0;
   border-radius: 3px;
@@ -42,14 +40,14 @@ body {
   font-size: 20px;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--branco);
+  color: var(--concreto-escuro);
 }
 
 .marca-sub {
   font-size: 13px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #bbb;
+  color: var(--concreto-escuro);
 }
 
 .container {
