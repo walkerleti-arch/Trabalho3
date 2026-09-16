@@ -13,7 +13,7 @@
 
     <div class="login-card">
         <div class="logo-area">
-            <img src="imagens/logo.png" alt="Depósito São José" class="logo-img">
+            <img src="img/logo.png" alt="Depósito São José" class="logo-img">
             <div class="logo-texto">Depósito São José</div>
             <div class="logo-sub">Painel Administrativo</div>
         </div>

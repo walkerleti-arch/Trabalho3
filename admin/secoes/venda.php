@@ -19,6 +19,11 @@ $itensVendidos = $pdo->query("
 $clientes = $pdo->query("SELECT id_cliente, nm_pessoa FROM CLIENTE ORDER BY nm_pessoa")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
+<?php if (isset($_SESSION['erro_venda'])): ?>
+    <div class="alert alert-danger"><?= htmlspecialchars($_SESSION['erro_venda']) ?></div>
+    <?php unset($_SESSION['erro_venda']); ?>
+<?php endif; ?>
+
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h4 class="mb-0">Vendas</h4>
     <button type="button" class="btn-lapis" data-bs-toggle="modal" data-bs-target="#modalVenda" onclick="novaVenda()" title="Adicionar venda">

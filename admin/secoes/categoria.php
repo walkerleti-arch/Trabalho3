@@ -2,6 +2,13 @@
 $categorias = $pdo->query("SELECT id_categoria, nm_categoria FROM CATEGORIA WHERE fl_ativo = TRUE ORDER BY nm_categoria")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
+<?php if (isset($_SESSION['erro_categoria'])): ?>
+    <div class="alert alert-danger">
+        <?= htmlspecialchars($_SESSION['erro_categoria']) ?>
+    </div>
+    <?php unset($_SESSION['erro_categoria']); ?>
+<?php endif; ?>
+
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h4 class="mb-0">Categorias</h4>
     <button type="button" class="btn-lapis" data-bs-toggle="modal" data-bs-target="#modalCategoria" onclick="novaCategoria()" title="Adicionar categoria">
